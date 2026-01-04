@@ -5,7 +5,7 @@ New tools increasingly allow us to rapidly design, prototype and test smart prod
 While [Protopie](https://www.protopie.io/) is a fantastic environment for rapid interactiond design (e.g. allowing more interactive flexibility compared to [Figma](https://www.figma.com/)), the free tier opportunities to connect 'pies' to the outside world are limited to 3 min timeframes. The enterprise version is not very student-friendly, so I have been develping a couple of workarounds.
 
 ### node.js & selenium
-Tapping directly into the 'pie2pie' socket.io connections is shielded, but when you open protopie connect, a web version of the interface is running on http://localhost:9981/. This means we can access the data directly over the DOM using [Selemium](https://www.selenium.dev/). This approach opens a web browser and reads the data monitoring table on the right.Using the input field on the top, you can also enter information.    
+Tapping directly into the 'pie2pie' socket.io connections is shielded, but when you open protopie connect, a web version of the interface is running on http://localhost:9981/. This means we can access the data directly over the DOM using [Selenium](https://www.selenium.dev/). This approach opens a web browser and reads the data monitoring table on the right.Using the input field on the top, you can also enter information.    
 
 Once your connected this way, you can build any connection you want from this server.
 
