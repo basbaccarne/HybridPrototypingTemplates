@@ -15,7 +15,7 @@ Working with Arduino in VSC can be a bit hard to work with. What you'll need:
 
 * **Compile** the code by defining the right board.
     * Search for the name of your board (e.g. a firebeelte board) using `arduino-cli board listall | findstr firebeetle`
-    * Then you can complie your code for that board (copy the name of the right board)
+    * Then you can compile your code for that board (copy the name of the right board)
     * e.g. `arduino-cli compile --fqbn esp32:esp32:firebeetle32 sketch.ino`
     * `--fqbn`stands for 'Fully Qualified Board Name'
 
