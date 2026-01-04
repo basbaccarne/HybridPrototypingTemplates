@@ -28,7 +28,7 @@ Run with `node <filename.js>`
     <img src="img/send.png" width="500">
 </div>   
 
-* [send_udp.ino](/selenium/send_udp/send_udp.ino) sends an analog value of A0 on a client Arduino over UPD and node.js server [receive_udp.js](/selenium/send_udp/receive_udp.js) receives this and sends this to protopie connect.
+* [send_udp.ino](/selenium/send_udp/send_udp.ino) sends an analog value of A0 on a client Arduino over UPD to node.js server [receive_udp.js](/selenium/send_udp/receive_udp.js), which receives this and sends this to protopie connect.
 
 ### Custom API
 The easiest way to work with **wireless** Arduino devices is to set-up your own API (node.js). This API allows you to send and receive data using http GET and POST commands. Connect your Arduino to the same wifi network as the Protopie Connect computer and run the node.js API server using `node <filename.js>`   
