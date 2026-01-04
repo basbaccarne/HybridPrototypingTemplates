@@ -36,3 +36,6 @@ _Note: You will still be constrained to the 3 minute limit of the free tier._
 
 * [example.js](/API/example.js): Reading and sending API messages
 
+# General
+### Arduino & VSC
+* If you prefer working in VSC over the Arduino IDE: [read this document](/arduino_VSC/readme.md)
