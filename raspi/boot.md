@@ -84,8 +84,21 @@ You might want to set-up a cleaner way to shutdown and restart the pi, since jus
   sudo crontab -e
   ```
 
+    e.g. shutown at 23:00 every day (* = "every")
   ```
   0 23 * * * sudo shutdown -h now
   ```
+
+    Manual
+    ```
+    # ┌───────────── minute (0 - 59)
+    # │ ┌───────────── hour (0 - 23)
+    # │ │ ┌───────────── day of month (1 - 31)
+    # │ │ │ ┌───────────── month (1 - 12)
+    # │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday = 0 or 7)
+    # │ │ │ │ │
+    # │ │ │ │ │
+    # * * * * *  command to execute
+    ```
 
 * Option 2: use a power management HAT such as the [Pimeroni OnOff SHIM](https://shop.pimoroni.com/products/onoff-shim?variant=41102600138)
