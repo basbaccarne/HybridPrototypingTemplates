@@ -37,5 +37,9 @@ _Note: You will still be constrained to the 3 minute limit of the free tier._
 * [example.js](/API/example.js): Reading and sending API messages
 
 # General
-### Arduino & VSC
+## Arduino & VSC
 * If you prefer working in VSC over the Arduino IDE: [read this document](/arduino_VSC/readme.md)
+
+## Raspberry Pi basics
+* Setting up a Raspi **headless** (without a screen, mouse and keyboard: [read this document](/raspi/headless.md)
+* Especially for headless set-up, it can be useful to **start things on boot**: [read this document](/raspi/boot.md). 
