@@ -14,7 +14,6 @@ These are your options
 
 ## Systemd
 * Create a new ```systemd``` service file:
-  ()
   ```console
   sudo nano /etc/systemd/system/videoplayer.service
   ```
@@ -65,7 +64,7 @@ These are your options
   ```console
   journalctl -u videoplayer.service --no-pager --reverse | less
   ```
-  > status
+* status
   ```console
   sudo systemctl status videoplayer.service
   ```
@@ -73,8 +72,8 @@ These are your options
 ## Disabling sleep
 If the screen runs for a long time, the auto sleep function might cause the screen to blank.
 
-* Edit the cmdline.txt file: sudo nano /boot/firmware/cmdline.txt.
-* Add consoleblank=0 at the end of the line.
+* Edit the cmdline.txt file: ```sudo nano /boot/firmware/cmdline.txt```.
+* Add ``consoleblank=0`` at the end of the line.
 
 ## Power management
 You might want to set-up a cleaner way to shutdown and restart the pi, since just powering it down might damage the SD card over time.
