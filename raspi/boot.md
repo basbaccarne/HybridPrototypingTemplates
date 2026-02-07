@@ -84,7 +84,7 @@ You might want to set-up a cleaner way to shutdown and restart the pi, since jus
   sudo crontab -e
   ```
 
-    e.g. shutown at 23:00 every day (* = "every")
+    e.g. shutdown at 23:00 every day (* = "every")
   ```
   0 23 * * * sudo shutdown -h now
   ```
