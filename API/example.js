@@ -19,7 +19,7 @@ app.use(express.text({ type: '*/*' }));
 // Let the web server receive events from Protopie Connect (or from anywhere else) using HTTP POST requests
 // In Protopie, go to API > Send API Request, and set it up like this:
 // Method: POST
-// URL: http://localhost:3000/pie-event (we define /pie-event as an endpoint to send data to in line 24)
+// URL: http://localhost:3000/pie-event (we define /pie-event as an endpoint to send data to in line 25)
 // BODY: 1 (or any text you want to send as a test)
 let latestPieEvent = 'no data yet'; // set the default
 app.post('/pie-event', (req, res) => {
@@ -62,7 +62,7 @@ app.post('/pie-command', (req, res) => {
 
 // Finally: run the server:
 app.listen(port, () => console.log(`--------------
-🔥Let's rock!🔥 
-This node.js server is up and running at http://localhost:${port}
-(Check your ip using ipconfig in the console/terminal/powershell (or ifconfig on Mac))
+🔥 Let's rock!🔥 
+ This node.js server is up and running at http://localhost:${port}
+ (For other devices: Check your ip using ipconfig in the console/terminal/powershell (or ifconfig on Mac))
 --------------`));
