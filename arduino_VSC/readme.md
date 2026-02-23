@@ -1,13 +1,21 @@
-Working with Arduino in VSC can be a bit hard to work with. What you'll need:   
+# Arduino in Visual Studio Code
+
+Working with Arduino in VSC can be a bit hard to work with.   
+VSC is basically a wrapper around the Arduino CLI (a command line version of the well-known Arduino IDE).   
+
+What you'll need:   
 
 * Install or update the **Arduino CLI**.
     * On windows, the easiest way is to use [Chocolatey](https://community.chocolatey.org/)
-    * Open cmd as admin and run `choco install arduino-cli` or `choco upgrade arduino-cli`
-    * In the VSC terminal check using `arduino-cli version`   
+    * Chocotaley is installed with node.js if you checked the box to install all the extra's.
+    * To check if you have Chocolatey installed: ```choco -v```
+    * Next, open cmd as admin and run `choco install arduino-cli` or `choco upgrade arduino-cli`
+    * In the VSC terminal: check using `arduino-cli version`
+    * Install the extension called `PlatformIO IDE` by `PlatformIO` (this can take a while - don't close vsc)
 
 * Install or update the right **boards**. 
     * This is easiest to manage in the Arduino IDE ([read more](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-board-manager/))
-    * Check installed and available boards using `arduino-cli core list`
+    * Check installed and available boards using `arduino-cli core list` in the vsc terminal.
 
 * Install or update **libraries**.
     * This is easiest to manage in the Arduino IDE ([read more](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library/))
@@ -18,7 +26,6 @@ Working with Arduino in VSC can be a bit hard to work with. What you'll need:
     * Then you can compile your code for that board (copy the name of the right board)
     * e.g. `arduino-cli compile --fqbn esp32:esp32:firebeetle32 sketch.ino`
     * `--fqbn`stands for 'Fully Qualified Board Name'
-
 
 * **Upload** the code.
     * Show connected devices with `arduino-cli board list`   
