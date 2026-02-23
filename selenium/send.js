@@ -59,6 +59,9 @@ class ProtoPieSender {
       .forBrowser('chrome')
       .setChromeOptions(options)
       .build();
+
+    // set fullscreen
+    await this.driver.manage().window().maximize();
   }
 
   // FUNCTION TO SETUP PAGE AND ELEMENTS

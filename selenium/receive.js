@@ -18,16 +18,16 @@ const chrome = require('selenium-webdriver/chrome');
     URL: 'http://localhost:9981/',
     POLL_INTERVAL: 50, // 50 ms is the max Selenium can handle reliably
     CHROME_ARGS: [
-      '--disable-web-security', '--no-sandbox', '--disable-gpu', 
-      '--disable-dev-shm-usage', '--disable-logging', '--silent', 
+      '--disable-web-security', '--no-sandbox', '--disable-gpu',
+      '--disable-dev-shm-usage', '--disable-logging', '--silent',
       '--log-level=3', '--disable-extensions', '--disable-background-timer-throttling'
     ]
   };
 
-   // FUNCTION to compare two objects
+  // FUNCTION to compare two objects
   function deepEqual(obj1, obj2) {
-    return JSON.stringify(obj1, Object.keys(obj1).sort()) === 
-           JSON.stringify(obj2, Object.keys(obj2).sort());
+    return JSON.stringify(obj1, Object.keys(obj1).sort()) ===
+      JSON.stringify(obj2, Object.keys(obj2).sort());
   }
 
   // FUNCTION to find the data table in the page
@@ -39,7 +39,7 @@ const chrome = require('selenium-webdriver/chrome');
     for (const selector of selectors) {
       try {
         return await driver.findElement(By.xpath(selector));
-      } catch(e) {}
+      } catch (e) { }
     }
     return null;
   }
@@ -48,10 +48,10 @@ const chrome = require('selenium-webdriver/chrome');
   async function extractRowData(tableBody) {
     const rows = await tableBody.findElements(By.xpath('./tr'));
     if (rows.length === 0) return null;
-    
+
     const cells = await rows[0].findElements(By.xpath('./td | ./th'));
     if (cells.length < 3) return null;
-    
+
     const [time, message, valueRaw, pieRaw, sourceRaw] = await Promise.all([
       cells[0]?.getText?.() || '',
       cells[1]?.getText?.() || '',
@@ -59,10 +59,10 @@ const chrome = require('selenium-webdriver/chrome');
       cells[3]?.getText?.() || '',
       cells[4]?.getText?.() || ''
     ]);
-    
+
     const timeTrim = time.trim();
     if (!timeTrim.match(/\d{2}:\d{2}:\d{2}:\d{3}/)) return null;
-    
+
     // RETURN structured data
     return {
       time: timeTrim,
@@ -84,9 +84,12 @@ const chrome = require('selenium-webdriver/chrome');
     .setChromeOptions(options)
     .build();
 
+  // set fullscreen
+  await driver.manage().window().maximize();
+
   await driver.get(CONFIG.URL);
   await driver.wait(until.titleContains('ProtoPie'), 15000);
-  
+
   // VARIABLES for monitoring changes
   let lastEntry = null;
   let hasSeenData = false;
@@ -99,14 +102,14 @@ const chrome = require('selenium-webdriver/chrome');
       // Find the table body containing data rows
       const tableBody = await findTable(driver);
       if (!tableBody) return;
-      
+
       // store the data currentEntry is the latest data row in JSON format
       const currentEntry = await extractRowData(tableBody);
       if (!currentEntry) return;
-      
+
       // Avoid processing identical data repeatedly
       latestDataCache = { ...currentEntry };
-      
+
       // On first data seen, or if data has changed, print it 
       if (!hasSeenData) {
         hasSeenData = true;
@@ -115,14 +118,14 @@ const chrome = require('selenium-webdriver/chrome');
         console.log('');
         return;
       }
-      
+
       // Compare with last entry and print if different
       if (!deepEqual(currentEntry, lastEntry)) {
         lastEntry = { ...currentEntry };
         console.log(JSON.stringify(currentEntry, null, 2));
         console.log('');
       }
-    } catch(e) {}
+    } catch (e) { }
   }, CONFIG.POLL_INTERVAL);
 
   // CLEAN SHUTDOWN
