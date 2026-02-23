@@ -7,7 +7,7 @@ What you'll need:
 
 * Install or update the **Arduino CLI**.
   
-    * On windows, the easiest way is to use [Chocolatey](https://community.chocolatey.org
+    * On windows, the easiest way is to use [Chocolatey](https://community.chocolatey.org).
       
     * Chocotaley is installed with node.js if you checked the box to install all the extra's.
       
@@ -44,6 +44,7 @@ What you'll need:
                 "workbench.startupEditor": "none"
             }
          ```
+  * Restart VSC for all the changes to take effect.
 
 * Install or update the right **boards**. 
     * This is easiest to manage in the Arduino IDE ([read more](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-board-manager/))
