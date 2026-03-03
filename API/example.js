@@ -65,4 +65,9 @@ app.listen(port, () => console.log(`--------------
 🔥 Let's rock!🔥 
  This node.js server is up and running at http://localhost:${port}
  (For other devices: Check your ip using ipconfig in the console/terminal/powershell (or ifconfig on Mac))
---------------`));
+\nAvailable endpoints:
+- POST http://localhost:${port}/pie-event
+- GET http://localhost:${port}/pie-event 
+- POST http://localhost:${port}/pie-command 
+- GET http://localhost:${port}/pie-command 
+ --------------`));
