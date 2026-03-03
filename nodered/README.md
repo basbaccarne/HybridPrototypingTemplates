@@ -22,11 +22,6 @@ It allows you to manage local en cloud services in an input-output logic.
 (manage nodes using ```alt+shift+p```)
 * Add nodes you need
 
-<div align="left">  
- <img src="demo1.png" width="600"> 
- <img src="demo1-hr.gif" width="600"> 
-</div>
-
 ## General information
 * Node-Red runs on node.js, which is Javascript (so the functions in Node-Red are also javascript)
 * Use debug nodes to help you monitor activity
