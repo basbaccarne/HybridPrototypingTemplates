@@ -69,7 +69,7 @@ Some common types are:
 
 
 * **Creating your own connectors**:
-    * Small connectors ofte use a system of a pinched interor part that can be shoved in an exterior housing.
+    * Small connectors often use a system of a pinched interior part that can be shoved in an exterior housing.
     * To do this, you need a crimping tool to crimp the wires to the pins, and then insert the pins into the housing. This can be a bit tricky at first, but with practice you can create your own custom connectors that fit your specific needs. You can also use heat shrink tubing to provide extra insulation and strain relief for your connections.
 
 
