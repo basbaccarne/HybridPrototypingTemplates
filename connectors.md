@@ -31,7 +31,7 @@ Some common types are:
     <img src="/img/dupont.jpg" height="300">
 </div>   
 
-* **Servo motors**: These use a variation of the dupont connector, in an encosed plactic housing. This system is called JR/Futaba.
+* **Servo motors**: These use a variation of the dupont connector, in an enclosed plactic housing. This system is called JR/Futaba.
 
 <div align="center">
     <img src="/img/futaba.jpg" height="300">
@@ -59,5 +59,22 @@ Some common types are:
     <img src="/img/headerpin.jpg" height="300">
 </div>   
 
+* **bigger**: these components are low power components. The bigger the power you need ton handle, the bigger the connections you need. E.g.
+    * Barrel jacks
+    * XLR
+    * IEC C5/C6
+    * IEC C7/C8
+    * IEC C14/15 
+    * ...
 
 
+* **Creating your own connectors**:
+    * Small connectors ofte use a system of a pinched interor part that can be shoved in an exterior housing.
+    * To do this, you need a crimping tool to crimp the wires to the pins, and then insert the pins into the housing. This can be a bit tricky at first, but with practice you can create your own custom connectors that fit your specific needs. You can also use heat shrink tubing to provide extra insulation and strain relief for your connections.
+
+
+
+<div align="center">
+    <img src="/img/crimping.png" height="300">
+    <img src="/img/crimping2.jpg" height="300">
+</div>   
