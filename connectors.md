@@ -16,7 +16,8 @@ Life can be so much more beautifyl when you have clean, well-organized and sturd
 * keep cables away from heat sources or moving parts
 * use cable sleeves to protect cables from abrasion and to give a neat appearance
 
-**connectors**
+**connectors**   
+
 There are different types of connectors you can use to make your connections more reliable and easier to disconnect if needed. 
 Three things define a connector: 
 1. the pitch (the distance between the pins or holes), 
@@ -59,7 +60,7 @@ Some common types are:
     <img src="/img/headerpin.jpg" height="300">
 </div>   
 
-* **bigger**: these components are low power components. The bigger the power you need ton handle, the bigger the connections you need. E.g.
+* **Bigger**: these components are low power components. The bigger the power you need ton handle, the bigger the connections you need. E.g.
     * Barrel jacks
     * XLR
     * IEC C5/C6
