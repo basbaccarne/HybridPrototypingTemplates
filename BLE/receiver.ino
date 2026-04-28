@@ -2,7 +2,7 @@
 
 #include <ArduinoBLE.h>
 
-const char* serviceUuid = "95ff7bf8-aa6f-4671-82d9-22a8931c5387";
+const char* targetName = "Nano Signal Sender";
 const char* charUuid = "95ff7bf8-aa6f-4671-82d9-22a8931c5388";
 
 void setup() {
@@ -13,16 +13,24 @@ void setup() {
     while (1);
   }
 
-  BLE.scanForUuid(serviceUuid);
+  BLE.scan();  // scan all, filter by name in code
   Serial.println("Scanning...");
 }
 
 void loop() {
+  BLE.poll();
+
   BLEDevice peripheral = BLE.available();
 
   if (peripheral) {
     Serial.print("Found: ");
-    Serial.println(peripheral.localName());
+    Serial.print(peripheral.localName());
+    Serial.print(" (");
+    Serial.print(peripheral.address());
+    Serial.println(")");
+
+    if (peripheral.localName() != targetName) return;  // skip non-targets
+
     BLE.stopScan();
 
     if (peripheral.connect()) {
@@ -33,6 +41,7 @@ void loop() {
 
         if (characteristic && characteristic.subscribe()) {
           while (peripheral.connected()) {
+            BLE.poll();
             if (characteristic.valueUpdated()) {
               float value;
               characteristic.readValue(&value, sizeof(value));
@@ -46,6 +55,6 @@ void loop() {
       Serial.println("Disconnected");
     }
 
-    BLE.scanForUuid(serviceUuid);
+    BLE.scan();  // restart scan after disconnect
   }
 }
