@@ -30,13 +30,17 @@ int button = 2;
 
 // dummy variable
 int pressure = 0;
+bool wasConnected = false;
 
 void setup() {
   Serial.begin(9600);
   pinMode(button, INPUT_PULLUP);
 
   // initialize BLE: part 1
-  BLE.begin();
+  if (!BLE.begin()) {
+    Serial.println("Starting BLE failed!");
+    while (1);
+  }
 
   // initialize BLE: part 2
   // Set advertised local name and services UUID
@@ -62,19 +66,14 @@ void loop() {
   // Check BLE connection
   BLEDevice central = BLE.central();
 
-  // Send data if there is a connection
-  if (central) {
-    if (central.connected()) {
-      // send the sensor value over BLE
-      punch.writeValue(pressure);
-      Serial.print("Sent: ");
-      Serial.println(pressure);
-    }
-  }
-
-  // Let us know if the connection drops
-  else if (!central.connected()) {
+  if (central && central.connected()) {
+    wasConnected = true;
+    punch.writeValue(pressure);
+    Serial.print("Sent: ");
+    Serial.println(pressure);
+  } else if (wasConnected) {
     Serial.println("Disconnected from central");
+    wasConnected = false;
   }
 
   // Poll for BLE events (this processes any pending BLE events)
